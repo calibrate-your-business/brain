@@ -155,3 +155,7 @@ Independent, but composable:
   connected, compared, cited -- not appended to.
 - **Selective, never bulk.** Material comes in deliberately, current and
   relevant only.
+
+## License
+
+MIT -- Copyright (c) 2026 Calibrate Your Business. See [LICENSE](LICENSE).
