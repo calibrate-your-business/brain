@@ -1,0 +1,10 @@
+# Daily brain ingest -- the intelligence pass. After x-bookmarks exports new raw
+# (03:10), Claude compiles the delta raw -> wiki with judgment. The SYSTEM runs
+# from cwd (the brain repo); the DATA lives in the private brain-db repo
+# (~/Claude/brain-db). Discovered by the automations manager.
+LABEL=com.cyb.brain-ingest
+SCHEDULE=04:30
+RUNTIME=claude
+MODEL=claude-fable-5
+COMMAND=Run the brain ingest pass. The brain SYSTEM is here (cwd); the DATA is at ~/Claude/brain-db (call it BRAIN_DB). Read ingest/INGEST.md for the format/rules. Read $BRAIN_DB/raw/x-bookmarks/.last-export.json (and any $BRAIN_DB/raw/*/.last-export.json) for the ids new or changed THIS run; if the total count is 0, do nothing and stop. Otherwise compile/REWRITE only the $BRAIN_DB/wiki/ entity, concept, and project pages affected by those delta raw items, with judgment -- synthesize, cross-link with [[wikilinks]], cite provenance. Then update $BRAIN_DB/index.md, append a one-line entry to $BRAIN_DB/log.md, and rebuild the derived index with: BRAIN_DB=~/Claude/brain-db python3 db/build_index.py. Then you are AUTHORIZED to commit and push brain-db NON-INTERACTIVELY -- do NOT ask for confirmation. Guardrails: only if the compile and build_index both succeeded; if `git -C ~/Claude/brain-db status --porcelain` is empty, skip (nothing to commit) and stop; otherwise run: git -C ~/Claude/brain-db add -A && git -C ~/Claude/brain-db commit -m "brain-ingest: compiled delta" && git -C ~/Claude/brain-db push origin main. If the compile failed, do NOT commit -- leave the tree as-is and report the failure.
+WORKDIR=.

@@ -1,0 +1,9 @@
+# Source #1: X bookmarks. Code lives in the x-bookmarks repo (the source
+# template). Pull over CDP/browser-use -> raw markdown here -> brain compiles.
+NAME=x-bookmarks
+KIND=pull
+RAW_DIR=raw/x-bookmarks
+OWNER_REPO=calibrate-your-business/x-bookmarks
+SCHEDULE=03:10
+CONTEXTS=research
+NOTES=627 bookmarks + 336 resolved article bodies; ai-ml/coding/productivity heavy

@@ -1,0 +1,10 @@
+# Daily recommendations-review alarm -- fires after the overnight chain
+# (capture 03:00 -> learnings 03:30 -> ingest 04:30) has produced the day's
+# CLAUDE.md digest. While any digest sits un-dispositioned in
+# brain-db/reports/claude-md/ (i.e. not moved to reviewed/), alert the human to
+# review it in the automations-management session.
+LABEL=com.cyb.recommendations-review
+SCHEDULE=06:00
+RUNTIME=script
+COMMAND=./check-recommendations.sh
+WORKDIR=automations

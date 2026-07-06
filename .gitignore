@@ -1,0 +1,13 @@
+.DS_Store
+_sync/
+*.tmp
+
+# ingest working artifacts (regenerable from x-bookmarks data)
+ingest/digests/
+ingest/manifest.json
+
+# derived index (rebuildable from the markdown)
+db/brain.db
+
+# per-source delta marker (transient, read by the ingest job)
+raw/*/.last-export.json
